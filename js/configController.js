@@ -8,7 +8,7 @@ demo.controller('ConfigController', [
             type: 'POST',
             formData: [{
                 name: 'api_password',
-                value: '0fe9e58a82c7b54381b480fa1d4a986389b2c8deb81e11461d9fa80b61219bb4'
+                value: 'PUT YOUR WISTIA API PASSWORD'
             }],
             acceptFileTypes: /(\.|\/)(mp4|avi|ogg)$/i,
         };
