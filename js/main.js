@@ -31,33 +31,6 @@ $(function () {
         )
     );
     
-    var api_password = "0fe9e58a82c7b54381b480fa1d4a986389b2c8deb81e11461d9fa80b61219bb4";
-		  //var url = result.files[0].url;
-		  var project_id = '8xzq70espm';
-		  var requestData = jQuery.param({
-			api_password: api_password,
-			file: $('#fileupload')[0],
-			project_id: project_id
-		  });
-
-		  $.ajax({
-			type:'POST',
-			url: 'https://upload.wistia.com',
-			data: requestData,
-			contentType: 'application/x-www-form-urlencoded',
-			cache: false,
-			processData: false,
-			success:function(data) {
-			  console.log('data',data);
-			  
-			  alert('Success!');
-			},
-			error: function(data) {
-			  console.log('data',data);
-			  alert('Error');
-			}
-		  });
-
     if (window.location.hostname === 'blueimp.github.io') {
         // Demo settings:
         $('#fileupload').fileupload('option', {
@@ -84,7 +57,6 @@ $(function () {
         }
     } else {
         // Load existing files:
-         //alert('ok');
         $('#fileupload').addClass('fileupload-processing');
         $.ajax({
             // Uncomment the following to send cross-domain cookies:
@@ -98,64 +70,7 @@ $(function () {
             
              $(this).fileupload('option', 'done')
                 .call(this, $.Event('done'), {result: result});
-          console.log('result',result);   
-          //alert(result);
-         /* var api_password = "0fe9e58a82c7b54381b480fa1d4a986389b2c8deb81e11461d9fa80b61219bb4";
-		  var url = result.files[0].url;
-		  var project_id = '8xzq70espm';
-		  var requestData = jQuery.param({
-			api_password: api_password,
-			url: url,
-			project_id: project_id
-		  });
-
-		  $.ajax({
-			type:'POST',
-			url: 'https://upload.wistia.com',
-			data: requestData,
-			contentType: 'application/x-www-form-urlencoded',
-			cache: false,
-			processData: false,
-			success:function(data) {
-			  console.log('data',data);
-			  
-			  alert('Success!');
-			},
-			error: function(data) {
-			  console.log('data',data);
-			  alert('Error');
-			}
-		  }); */
-                
         });
-        
-        /*var api_password = "0fe9e58a82c7b54381b480fa1d4a986389b2c8deb81e11461d9fa80b61219bb4";
-		 // var url = result.files[0].url;
-		  var project_id = '8xzq70espm';
-		  var requestData = jQuery.param({
-			api_password: api_password,
-			file:$('#fileupload')[0],
-			project_id: project_id
-		  });
-
-		  $.ajax({
-			type:'POST',
-			url: 'https://upload.wistia.com',
-			data: requestData,
-			contentType: 'application/x-www-form-urlencoded',
-			cache: false,
-			processData: false,
-			success:function(data) {
-			  console.log('data',data);
-			 
-			  //alert('Success!');
-			},
-			error: function(data) {
-			  console.log('data',data);
-			  //alert('Error');
-			}
-		  });
-        */
     }
 
 });
