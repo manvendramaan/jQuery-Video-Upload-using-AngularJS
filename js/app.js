@@ -38,44 +38,16 @@
                         disableImageResize: /Android(?!.*Chrome)|Opera/
                             .test(window.navigator.userAgent),
                         maxFileSize: 999000,
-                        acceptFileTypes: /(\.|\/)(gif|jpe?g|png|mp4)$/i
+                        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
                     });
                 }
             }
         ])
-
-        .directive('ngFiles', ['$parse', function ($parse) {
-
-            function fn_link(scope, element, attrs) {
-                var onChange = $parse(attrs.ngFiles);
-                element.on('change', function (event) {
-                    onChange(scope, { $files: event.target.files });
-                });
-            };
-
-            return {
-                link: fn_link
-            }
-        } ])
-        
         .controller('DemoFileUploadController', [
             '$scope', '$http', '$filter', '$window',
             function ($scope, $http) {
                 $scope.options = {
                     url: url
-                };
-                
-                var formdata = new FormData();
-                $scope.getTheFiles = function ($files) {
-                    angular.forEach($files, function (value, key) {
-                        formdata.append(key, value);
-                    });
-                };
-                
-                $scope.submit = function(){
-                  //var file = $scope.myFile;
-                  //var uploadUrl = 'my_url';
-                  console.log('formdata',formdata);
                 };
                 
                 if (!isOnGitHub) {
